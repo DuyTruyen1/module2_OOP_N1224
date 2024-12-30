@@ -1,4 +1,4 @@
-package ss3_static.phone_management;
+package ss4_Inheritance.phone_management;
 
 public class Phone_Management {
     public static void main(String[] args) {

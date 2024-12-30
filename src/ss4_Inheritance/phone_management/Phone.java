@@ -1,4 +1,4 @@
-package ss3_static.phone_management;
+package ss4_Inheritance.phone_management;
 
 import java.util.Scanner;
 

@@ -1,10 +1,10 @@
-package ss3_static.phone_management;
+package ss4_Inheritance.phone_management;
 
 import java.util.Scanner;
 
 public class OldPhone extends Phone {
     private String batteryStatus;
-    private int description;
+    private String description;
 
     @Override
     public void input(){
@@ -12,8 +12,8 @@ public class OldPhone extends Phone {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter Battery Status: ");
         batteryStatus = sc.nextLine();
-        System.out.print("Enter Description: ");
-        description = sc.nextInt();
+        System.out.print("Enter Dsc.nextLiscription: ");
+        description = sc.nextLine();
     }
 
     @Override
@@ -25,7 +25,7 @@ public class OldPhone extends Phone {
     public OldPhone() {
     }
 
-    public OldPhone(int id, String namePhone, double price, int time, String manufacturer, String batteryStatus, int description) {
+    public OldPhone(int id, String namePhone, double price, int time, String manufacturer, String batteryStatus, String description) {
         super(id, namePhone, price, time, manufacturer);
         this.batteryStatus = batteryStatus;
         this.description = description;
@@ -39,11 +39,11 @@ public class OldPhone extends Phone {
         this.batteryStatus = batteryStatus;
     }
 
-    public int getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(int description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 }
