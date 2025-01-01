@@ -25,11 +25,13 @@ public class OldPhone extends Phone {
     public OldPhone() {
     }
 
-    public OldPhone(int id, String namePhone, double price, int time, String manufacturer, String batteryStatus, String description) {
+    public OldPhone(String id, String namePhone, double price, int time, String manufacturer, String batteryStatus, String description) {
         super(id, namePhone, price, time, manufacturer);
         this.batteryStatus = batteryStatus;
         this.description = description;
     }
+
+
 
     public String getBatteryStatus() {
         return batteryStatus;

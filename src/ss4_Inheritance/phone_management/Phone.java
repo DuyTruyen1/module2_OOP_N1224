@@ -3,7 +3,7 @@ package ss4_Inheritance.phone_management;
 import java.util.Scanner;
 
 public class Phone {
-    private int id;
+    private String id;
     private String namePhone;
     private double price;
     private int time;
@@ -11,8 +11,9 @@ public class Phone {
 
     public void input() {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter ID: ");
-        id = Integer.parseInt(sc.nextLine());
+
+        System.out.println("Enter ID: ");
+        id = sc.nextLine();
 
         System.out.print("Enter Name: ");
         namePhone = sc.nextLine();
@@ -39,7 +40,7 @@ public class Phone {
     public Phone() {
     }
 
-    public Phone(int id, String namePhone, double price, int time, String manufacturer) {
+    public Phone(String id, String namePhone, double price, int time, String manufacturer) {
         this.id = id;
         this.namePhone = namePhone;
         this.price = price;
@@ -47,11 +48,11 @@ public class Phone {
         this.manufacturer = manufacturer;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
