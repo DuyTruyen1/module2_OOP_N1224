@@ -5,8 +5,7 @@ import java.util.Scanner;
 
 public class Main {
     Scanner sc = new Scanner(System.in);
-    static ArrayList<OldPhone> oldPhoneList = new ArrayList<>();
-    static ArrayList<NewPhone> newPhoneList = new ArrayList<>();
+
     static ArrayList<Phone> phones = new ArrayList<>();
 
     static {
@@ -72,27 +71,27 @@ public class Main {
                 switch (choice) {
                     case 1:
                         System.out.println("==== List of All Phones ====");
-                        for (int i = 0; i < oldPhoneList.size(); i++) {
+                        for (int i = 0; i < phones.size(); i++) {
                             System.out.println("Phone details #" + (i + 1));
-                            oldPhoneList.get(i).output();
+                            phones.get(i).output();
                         }
-                        for (int i = 0; i < newPhoneList.size(); i++) {
-                            System.out.println("Phone details #" + (i + 1 + oldPhoneList.size()));
-                            newPhoneList.get(i).output();
+                        for (int i = 0; i < phones.size(); i++) {
+                            System.out.println("Phone details #" + (i + 1 + phones.size()));
+                            phones.get(i).output();
                         }
                         break;
                     case 2:
                         System.out.println("==== List of Old Phones ====");
-                        for (int i = 0; i < oldPhoneList.size(); i++) {
+                        for (int i = 0; i < phones.size(); i++) {
                             System.out.println("Phone details #" + (i + 1));
-                            oldPhoneList.get(i).output();
+                            phones.get(i).output();
                         }
                         break;
                     case 3:
                         System.out.println("==== List of New Phones ====");
-                        for (int i = 0; i < newPhoneList.size(); i++) {
+                        for (int i = 0; i < phones.size(); i++) {
                             System.out.println("Phone details #" + (i + 1));
-                            newPhoneList.get(i).output();
+                            phones.get(i).output();
                         }
                         break;
                     case 4:
@@ -120,14 +119,14 @@ public class Main {
                     OldPhone oldPhone = new OldPhone();
                     oldPhone.input();
                     oldPhone.setId(oldPhone.getId());
-                    oldPhoneList.add(oldPhone);
+                    phones.add(oldPhone);
                     System.out.println("Add new phone successfully");
                     break;
                 case 2:
                     NewPhone newPhone = new NewPhone();
                     newPhone.input();
                     newPhone.setId(newPhone.getId());
-                    newPhoneList.add(newPhone);
+                    phones.add(newPhone);
                     System.out.println("Add new phone successfully");
                     break;
                 case 3:
@@ -139,14 +138,14 @@ public class Main {
     }
 
     private static String getIdOldPhone() {
-        if (oldPhoneList.isEmpty()) {
+        if (phones.isEmpty()) {
             return "IP001";
         }
 
-        int max = Integer.parseInt(oldPhoneList.get(0).getId().substring(3));
+        int max = Integer.parseInt(phones.get(0).getId().substring(3));
 
-        for (int i = 1; i < oldPhoneList.size(); i++) {
-            int id = Integer.parseInt(oldPhoneList.get(i).getId().substring(3));
+        for (int i = 1; i < phones.size(); i++) {
+            int id = Integer.parseInt(phones.get(i).getId().substring(3));
             if (max < id) {
                 max = id;
             }
@@ -155,14 +154,14 @@ public class Main {
     }
 
     private static String getIdNewPhone() {
-        if (newPhoneList.isEmpty()) {
+        if (phones.isEmpty()) {
             return "SS001";
         }
 
-        int max = Integer.parseInt(newPhoneList.get(0).getId().substring(3));
+        int max = Integer.parseInt(phones.get(0).getId().substring(3));
 
-        for (int i = 1; i < newPhoneList.size(); i++) {
-            int id = Integer.parseInt(newPhoneList.get(i).getId().substring(3));
+        for (int i = 1; i < phones.size(); i++) {
+            int id = Integer.parseInt(phones.get(i).getId().substring(3));
             if (max < id) {
                 max = id;
             }
@@ -292,7 +291,18 @@ public class Main {
 
             switch (choice) {
                 case 1:
+                    searchAllPhones();
+                    break;
                 case 2:
+                    searchOldPhones();
+                    break;
+                case 3:
+                    searchNewPhones();
+                    break;
+                case 4:
+                    return;
+                default:
+                    System.out.println("Invalid choice, please try again!");
             }
         }
     }
