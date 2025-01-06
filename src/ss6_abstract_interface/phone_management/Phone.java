@@ -2,13 +2,17 @@ package ss6_abstract_interface.phone_management;
 
 import java.util.Scanner;
 
-public abstract class Phone {
+public abstract class Phone implements Comparable<Phone> {
     private String id;
     private String namePhone;
     private double price;
     private int time;
     private String manufacturer;
 
+    @Override
+    public int compareTo(Phone p) {
+        return Double.compare(this.getPrice(), p.price);
+    }
     public abstract double totalPrice();
 
     public void input() {
