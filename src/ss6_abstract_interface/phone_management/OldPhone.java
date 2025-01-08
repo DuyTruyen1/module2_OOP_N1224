@@ -1,5 +1,7 @@
 package ss6_abstract_interface.phone_management;
 
+import ss10_exception.validation.PhoneValidation;
+
 import java.util.Scanner;
 
 public class OldPhone extends Phone implements Discount {
@@ -14,11 +16,8 @@ public class OldPhone extends Phone implements Discount {
     @Override
     public void input() {
         super.input();
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter Battery Status: ");
-        batteryStatus = sc.nextLine();
-        System.out.print("Enter Dsc.nextLiscription: ");
-        description = sc.nextLine();
+        this.batteryStatus = String.valueOf(PhoneValidation.inputBatteryPercentage("Status Battery"));
+        this.description = PhoneValidation.inputDescription("Description");
     }
 
     @Override

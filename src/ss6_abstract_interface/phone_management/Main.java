@@ -20,54 +20,58 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int choose;
         while (true) {
-            do {
-                System.out.println("PHONE MANAGEMENT");
-                System.out.println("1. View phone list");
-                System.out.println("2. Add new phone");
-                System.out.println("3. Update phone");
-                System.out.println("4. Delete phone");
-                System.out.println("5. Sort by price");
-                System.out.println("6. Search phone");
-                System.out.println("7. Total price");
-                System.out.println("8. Old phone discount ");
-                System.out.println("9. Exit");
-                System.out.print("Please make your choice: ");
-                choose = Integer.parseInt(sc.nextLine());
+            try {
+                do {
+                    System.out.println("PHONE MANAGEMENT");
+                    System.out.println("1. View phone list");
+                    System.out.println("2. Add new phone");
+                    System.out.println("3. Update phone");
+                    System.out.println("4. Delete phone");
+                    System.out.println("5. Sort by price");
+                    System.out.println("6. Search phone");
+                    System.out.println("7. Total price");
+                    System.out.println("8. Old phone discount ");
+                    System.out.println("9. Exit");
+                    System.out.print("Please make your choice: ");
+                    choose = Integer.parseInt(sc.nextLine());
 
-                switch (choose) {
-                    case 1:
-                        showList();
-                        break;
-                    case 2:
-                        addNew();
-                        break;
-                    case 3:
-                        update();
-                        break;
-                    case 4:
-                        delete();
-                        break;
-                    case 5:
-                        sort();
-                        break;
-                    case 6:
-                        search();
-                        break;
-                    case 7:
-                        System.out.println("Total price all phone : " + calculateTotalPrice());
-                        break;
-                    case 8:
-                        System.out.println("Enter into discount percentage");
-                        double percentage = Double.parseDouble(sc.nextLine());
-                        discountOldPhones(percentage);
-                        System.out.println("Discounted successfully");
-                        break;
-                    case 9:
-                        return;
-                    default:
-                        System.out.println("Your choice is invalid!");
-                }
-            } while (choose < 1 || choose > 5);
+                    switch (choose) {
+                        case 1:
+                            showList();
+                            break;
+                        case 2:
+                            addNew();
+                            break;
+                        case 3:
+                            update();
+                            break;
+                        case 4:
+                            delete();
+                            break;
+                        case 5:
+                            sort();
+                            break;
+                        case 6:
+                            search();
+                            break;
+                        case 7:
+                            System.out.println("Total price all phone : " + calculateTotalPrice());
+                            break;
+                        case 8:
+                            System.out.println("Enter into discount percentage");
+                            double percentage = Double.parseDouble(sc.nextLine());
+                            discountOldPhones(percentage);
+                            System.out.println("Discounted successfully");
+                            break;
+                        case 9:
+                            return;
+                        default:
+                            System.out.println("Your choice is invalid!");
+                    }
+                } while (choose < 1 || choose > 5);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
     }

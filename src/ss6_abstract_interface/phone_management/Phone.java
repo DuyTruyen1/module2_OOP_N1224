@@ -1,5 +1,7 @@
 package ss6_abstract_interface.phone_management;
 
+import ss10_exception.validation.PhoneValidation;
+
 import java.util.Scanner;
 
 public abstract class Phone implements Comparable<Phone> {
@@ -16,22 +18,10 @@ public abstract class Phone implements Comparable<Phone> {
     public abstract double totalPrice();
 
     public void input() {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.println("Enter ID: ");
-        id = sc.nextLine();
-
-        System.out.print("Enter Name: ");
-        namePhone = sc.nextLine();
-
-        System.out.print("Enter Price: ");
-        price = Double.parseDouble(sc.nextLine());
-
-        System.out.print("Enter Time: ");
-        time = Integer.parseInt(sc.nextLine());
-
-        System.out.print("Enter Manufacturer: ");
-        manufacturer = sc.nextLine();
+        this.namePhone = PhoneValidation.inputName("Name Phone");
+        this.price = PhoneValidation.inputPrice("Price Phone");
+        this.time = PhoneValidation.inputWarranty("Warranty Time");
+        this.manufacturer = PhoneValidation.inputManufacturer("Manufacturer Name");
     }
 
     public void output() {
